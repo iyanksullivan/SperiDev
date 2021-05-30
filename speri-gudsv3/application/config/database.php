@@ -76,9 +76,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+<<<<<<< HEAD
 	'username' => '',
 	'password' => '',
 	'database' => '',
+=======
+	'username' => 'root',
+	'password' => '',
+	'database' => 'speri-guds',
+>>>>>>> develop-customer
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
