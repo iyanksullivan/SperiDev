@@ -41,7 +41,7 @@
       <div class="col-xl-2 bg-dark mt-2 pr-3 pt-4">
           <ul class="nav flex-column ml-3 mb-5">
               <li class="nav-item">
-                <a class="nav-link active text-white" href="<?=site_url('Staff/index')?>"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
+                <a class="nav-link active text-white" href="<?=site_url('Manager/index')?>"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="<?=site_url('ControllerUser/daftarUser')?>"><i class="fas fa-users mr-2"></i>Daftar User</a><hr class="bg-secondary">
@@ -53,7 +53,7 @@
                 <a class="nav-link text-white" href="#"><i class="fas fa-cog mr-2"></i>Pengaturan</a><hr class="bg-secondary">
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="<?=site_url('Staff/update')?>"><i class="fas fa-user-cog mr-2"></i>Edit Profile</a><hr class="bg-secondary">
+                <a class="nav-link text-white" href="<?=site_url('Manager/update')?>"><i class="fas fa-user-cog mr-2"></i>Edit Profile</a><hr class="bg-secondary">
               </li>
             </ul>
       </div> -->
@@ -61,7 +61,7 @@
           <h3><i class="fas fa-user mt-5 mr-2"></i>Edit Profile</h3><hr>
             <div class="row">
               <div class="col-lg-8">
-               <?php echo form_open_multipart('Staff/edit_staff');?>
+               <?php echo form_open_multipart('Manager/edit_manager');?>
                   <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
@@ -106,8 +106,8 @@
             </div>
             <div class="row">
               <div class="col-sm-10">
-                <!-- <?php echo site_url('Staff/delete/'.$data['username']);?> -->
-              <a href="<?php echo site_url('Staff/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i class="fas fa-trash bg-danger text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
+                <!-- <?php echo site_url('Manager/delete/'.$data['username']);?> -->
+              <a href="<?php echo site_url('Manager/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i class="fas fa-trash bg-danger text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
               </div>
             </div>
           <footer class="sticky-footer bg-white mt-5">
