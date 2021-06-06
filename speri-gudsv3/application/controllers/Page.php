@@ -20,15 +20,15 @@ class Page extends CI_Controller {
     public function aboutUs()
         {
             // $data['kategori'] = $this->CartModel->get_kategori_all();
-            $this->load->view('Themes/header');
+            // $this->load->view('Themes/header');
             $this->load->view('Page/aboutUs');
-            $this->load->view('Themes/footer');
+            // $this->load->view('Themes/footer');
         }
     public function petunjukBayar()
         {
             // $data['kategori'] = $this->CartModel->get_kategori_all();
-            $this->load->view('Themes/header');
+            // $this->load->view('Themes/header');
             $this->load->view('Page/petunjukBayar');
-            $this->load->view('Themes/footer');
+            // $this->load->view('Themes/footer');
         }
 }

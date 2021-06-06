@@ -1,82 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Halaman Login</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-    <!--CSS KINDI DISINI YA GAN -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style2.css">
+    <!-- Title Page-->
+    <title>Register</title>
 
-  </head>
-  <body>
-    <section class="container-fluid bg">
-            <section class="row justify-content-center">
-                <section class="col-12 col-xl-6 col-md-3" >
-                    <form class="form-container" method="post">
-                      <div class="text-center">
-                          <h3 class="pos">Buat akun pengguna!</h3><hr>    
-                      </div>
-                      <div class="form-group row mt-5">
-                      <label for="username" class="col-sm-2 col-form-label">Username</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="username" name="username">
-                      </div>
-                      </div>     
-                      <div class="form-group row">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama Pengguna</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="nama" name="nama">
-                        </div>
-                      </div>   
-                      <div class="form-group row">
-                        <label for="nama" class="col-sm-2 col-form-label">Alamat Pengguna</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="alamat" name="alamat">
-                        </div>
-                      </div>                 
-                      <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Re-Enter Password</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="password" name="re-password">
-                        </div>
-                      </div>
-                      <!-- <div class="form-group row">
-                        <div class="col-sm-2">Picture</div>
-                        <div class="col-sm-10">
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <img src="<?= base_url()?>/assets/images/default.jpg" class="img-thumbnail">
+    <!-- Icons font CSS-->
+    <link href="<?= base_url(); ?>/assets/vendorRegister/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url(); ?>/assets/vendorRegister/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="<?= base_url(); ?>/assets/vendorRegister/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url(); ?>/assets/vendorRegister/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="<?= base_url(); ?>/assets/cssRegister/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Buat Akun Baru</h2>
+                    <form method="POST">
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nama</label>
+                                    <input class="input--style-4" type="text" name="nama">
+                                </div>
                             </div>
-                            <div class="col-sm-9">
-                              <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="foto" name="foto">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                              </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Alamat</label>
+                                    <input class="input--style-4" type="text" name="alamat">
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div> -->
-                      <div class="form-group row justify-content-end">
-                        <div class="col-sm-10">
-                          <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username">
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="password">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Konfirmasi Password</label>
+                                    <input class="input--style-4" type="password" name="re-password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
                     </form>
-                </section>
-            </section>
-    </section>
-  </body>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="<?= base_url(); ?>/assets/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="<?= base_url(); ?>/assets/vendor/select2/select2.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/datepicker/moment.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="<?= base_url(); ?>/assets/js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
+<!-- end document-->

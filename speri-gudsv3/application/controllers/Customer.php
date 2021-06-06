@@ -7,6 +7,7 @@ class Customer extends CI_Controller {
 		parent::__construct();
 		$this->load->model('CustomerModel');
 		$this->load->library('form_validation');
+		$this->load->helper('url');
 		// $this->load->library('upload',$config);
 	}
 
@@ -23,12 +24,13 @@ class Customer extends CI_Controller {
 		}
 	}
 
+	// fungsi untuk login untuk customer
 	public function login()
 	{
-		
 		//pembuatan rules untuk form yg wajib diisi
-		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('username','Username','required');
 		$this->form_validation->set_rules('password','Password','required');		
+	
 		//jika data tidak full maka akan dikembalikan ke form login
 		if($this->form_validation->run() == false){
 			$this->load->view('Customer/userLogin');		
@@ -92,11 +94,12 @@ class Customer extends CI_Controller {
 
 		//untuk mengambil data yang sudah ada di dalam database
 		$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
-		if($this->form_validation->run() == false){
+		
+		if($this->form_validation->run() == false){			
 			$this->load->view('Customer/userEdit',$data);
 		}
 		else{
-			//untuk update .
+			//untuk update data
 			if($this->input->post('password') == $this->input->post('re-password')){	
 				$data = [              
 					'username' => $this->session->username,
@@ -114,13 +117,14 @@ class Customer extends CI_Controller {
 	}
 
 	//ini fungsi untuk menghapus data dengan username spesifik dalam database	
-	 public function delete(){	
+	public function delete(){	
 		$this->CustomerModel->delete($this->session->username);
 		$this->session->sess_destroy();	
 		redirect('Customer/index');
     }
-	public function logout(){
-		//ini fungsi untuk melogout user.
+
+    //ini fungsi untuk melogout user
+	public function logout(){		
 		$this->session->sess_destroy();
 		redirect('Customer/index');
 	}
