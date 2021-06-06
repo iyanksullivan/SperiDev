@@ -12,26 +12,19 @@ class Shopping extends CI_Controller {
     }
  
     public function index()
-    {
-        // $kategori=($this->uri->segment(3))?$this->uri->segment(3):0;
-        // $data['produk'] = $this->CartModel->get_produk_kategori($kategori);
-        // $data['kategori'] = $this->CartModel->get_kategori_all();
-        // $this->load->view('Themes/header',$data);
+    {       
         $data['sparepart'] = $this->CartModel->getAllProduct();
-        $this->load->view('Shopping/productList',$data);
-        // $this->load->view('Themes/footer');
+        $this->load->view('Shopping/productList',$data);        
     }
     public function viewCart()
-    {
-        // $data['kategori'] = $this->CartModel->get_kategori_all();
+    {        
         $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/viewCart',$data);
         $this->load->view('Themes/footer');
     }
  
     public function checkout()
-    {
-        // $data['kategori'] = $this->CartModel->get_kategori_all();
+    {        
         $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/checkout',$data);
         $this->load->view('Themes/footer');

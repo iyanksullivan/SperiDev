@@ -1,112 +1,103 @@
-<!-- Aqshal Rafli Pradana Setiawan
-1301180042 -->
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Halaman Login</title>
+<head>
+	<title>Customer Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/css/util.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>/assets/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="<?= base_url(); ?>/assets/images/img-01.png" alt="IMG">
+				</div>
 
-<!-- Code source jquery dan bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+				<form class="login100-form validate-form" method="post">
+					<span class="login100-form-title">
+						Customer Login
+					</span>
 
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/styleKindi.css">
+					<div class="wrap-input100 validate-input" data-validate = "Username tidak boleh kosong">
+						<!-- <input class="input100" type="text" name="username" placeholder="Username"> -->
+						 <input type="text" class="input100" name="username" id="exampleInputPassword1" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
 
-  </head>
-  <body>
+					<div class="wrap-input100 validate-input" data-validate = "Password tidak boleh kosong">
+						<!-- <input class="input100" type="password" name="password" placeholder="Password"> -->
+					 	<input type="password" class="input100" name="password" id="exampleInputPassword1" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
 
-    <!-- JANGAN DI APUS GAN -->
-        <!-- Container untuk login user -->
-        <div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="myModalLabel">Tambah Admin</h3>
-            </div>
-            <?php echo form_open_multipart('Customer/register'); ?>
-                <div class="modal-body">
-                    <!-- Form untuk username -->
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Username</label>
-                        <div class="col-xs-8">
-                            <input name="username" class="form-control" type="text" placeholder="" required>
-                        </div>
-                    </div>
-                    <!-- Form untuk nama -->
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Nama</label>
-                        <div class="col-xs-8">
-                            <input name="nama" class="form-control" type="text" placeholder="" required>
-                        </div>
-                    </div>
-                    <!-- Form untuk password -->
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Password</label>
-                        <div class="col-xs-8">
-                            <input name="password" class="form-control" type="password" placeholder="" required>
-                        </div>
-                    </div>
-                    <!-- Form untuk alamat -->
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Alamat</label>
-                        <div class="col-xs-8">
-                            <input name="alamat" class="form-control" type="text" placeholder="" required>
-                        </div>
-                    </div>
-                    <!-- Form untuk foto -->
-                    <!-- <div class="form-group">
-                        <label class="control-label col-xs-3" >Foto</label>
-                        <div class="col-xs-8">
-                            <input name="foto" class="form-control" type="file">
-                        </div>
-                    </div> -->
- 
-                </div>
- 
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info">Simpan</button>
-                </div>
-            
-            <?php echo form_close();  ?>
-            </div>
-            </div>
-        </div>
-<!-- Container untuk login admin -->
-    <section class="container-fluid bg">
-            <section class="row justify-content-center">
-                <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container" method="post">
-                        <div class="text-center">
-                            <h3 class="pos">Welcome Admin!</h3>    
-                        </div>
-                        <div class="form-group">
-                        <!-- Form username -->
-                            <label for="username">Username</label>
-                            <input type="username" class="form-control" name="username" size="35px;" placeholder="Username...">
-                          
-                        </div>
-                        <!-- Form password -->
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                        </div>
-                        <!-- Button login -->
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        <!-- <small class="form-text text-muted text-center">Create your account <a class="btn btn-sm btn-success"data-toggle="modal" data-target="#modal_add_new">here</a></ -->
-                        <a class="nav-link active" href="<?=site_url('Customer/register')?>">Register</a>
-                    </form>
-                </section>
-            </section>
-    </section>
-  </body>
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Lupa
+						</span>
+						<a class="txt2" href="#">
+							Password?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="<?=site_url('Customer/register')?>">
+							Daftar akun baru
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
 </html>
