@@ -14,7 +14,9 @@ class Shopping extends CI_Controller {
     public function index()
     {       
         $data['sparepart'] = $this->CartModel->getAllProduct();
-        $this->load->view('Shopping/productList',$data);        
+        $this->load->view('Themes/header',$data);
+        $this->load->view('Shopping/productList',$data);      
+        $this->load->view('Themes/footer');  
     }
     public function viewCart()
     {        
@@ -49,7 +51,7 @@ class Shopping extends CI_Controller {
                              'qty' =>$this->input->post('qty')
                             );
         $this->cart->insert($data_produk);
-        redirect('Shopping');
+        redirect('Shopping/index');
     }
  
     function delete($rowid)
@@ -115,6 +117,12 @@ class Shopping extends CI_Controller {
         // $data['kategori'] = $this->CartModel->get_kategori_all();
         $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/orderComplete',$data);
+        $this->load->view('Themes/footer');
+    }
+
+    public function test(){
+        $this->load->view('Themes/header');
+        $this->load->view('Shopping/orderComplete');
         $this->load->view('Themes/footer');
     }
 }
