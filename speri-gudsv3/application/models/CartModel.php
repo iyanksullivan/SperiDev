@@ -11,29 +11,29 @@ class CartModel extends CI_Model {
  
     public  function getProductId($id)
     {
-        $this->db->select('sparepart.*,nama_kategori');
+        $this->db->select('sparepart.*');
         $this->db->from('sparepart');        
-        $this->db->where('id_produk',$id);
+        $this->db->where('kode',$id);
         return $this->db->get();
     }   
  
     public function addCustomer($data)
     {
-        $this->db->insert('tbl_pelanggan', $data);
+        $this->db->insert('customer', $data);
         $id = $this->db->insert_id();
         return (isset($id)) ? $id : FALSE;
     }
  
     public function addOrder($data)
     {
-        $this->db->insert('tbl_order', $data);
+        $this->db->insert('orders', $data);
         $id = $this->db->insert_id();
         return (isset($id)) ? $id : FALSE;
     }
  
     public function addDetailOrder($data)
     {
-        $this->db->insert('tbl_detail_order', $data);
+        $this->db->insert('order_detail', $data);
     }
 }
 ?>
