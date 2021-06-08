@@ -2,15 +2,15 @@
 <div class="kotak2">
 <?php
 $grand_total = 0;
-if ($cart = $this->cart->contents())
+if ($cart = $order_detail)
 	{
 		foreach ($cart as $item)
 			{
-				$grand_total = $grand_total + $item['subtotal'];
+				$grand_total = $grand_total + ($item['qty'] * $item['harga']);;
 			}
 		echo "<h4>Total Belanja: Rp.".number_format($grand_total,0,",",".")."</h4>";	
 ?>
-<form class="form-horizontal" action="<?php echo base_url()?>shopping/proses_order" method="post" name="frmCO" id="frmCO">
+<form class="form-horizontal" action="<?php echo site_url()?>/Shopping/order" method="post" name="frmCO" id="frmCO">
         <div class="form-group  has-success has-feedback">
             <label class="control-label col-xs-3" for="inputEmail">Email:</label>
             <div class="col-xs-9">
@@ -20,19 +20,19 @@ if ($cart = $this->cart->contents())
         <div class="form-group  has-success has-feedback">
             <label class="control-label col-xs-3" for="firstName">Nama :</label>
             <div class="col-xs-9">
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap">
+                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap" value="<?php echo $customer['nama']?>">
             </div>
         </div>
         <div class="form-group  has-success has-feedback">
             <label class="control-label col-xs-3" for="lastName">Alamat:</label>
             <div class="col-xs-9">
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat">
+                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $customer['alamat']?>">
             </div>
         </div>
         <div class="form-group  has-success has-feedback">
             <label class="control-label col-xs-3" for="phoneNumber">Telp:</label>
             <div class="col-xs-9">
-                <input type="tel" class="form-control" name="telp" id="telp" placeholder="No Telp">
+                <input type="tel" class="form-control" name="telp" id="telp" placeholder="No Telp" value="<?php echo $customer['telp']?>">
             </div>
         </div>
         

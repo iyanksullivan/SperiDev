@@ -6,9 +6,10 @@ class CustomerModel extends CI_Model{
         return $this->db->get_where('customer', [$key => $value])->row_array();
     }
 
-    //fungsi untuk mengembalikan data dari customer 
-    public function getAllData($key,$value){
-        return $this->db->get_where('customer', [$key => $value])->row_array();
+    //fungsi untuk mengembalikan semua data customer 
+    public function getAllData(){
+        $query = $this->db->get('customer');
+        return $query->result_array();
     }
 
     //fungsi untuk melakukan pengecekan credential untuk login admin
