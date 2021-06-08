@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Komang.My.ID Shop Online</title>
+    <title>Speri-guds</title>
 	<link href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">    
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="<?php echo base_url()?>assets/asie/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -39,14 +39,16 @@
             <span class="icon-bar"></span>
             < class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>assets/logos.png"></a>
+          <!-- <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>assets/logos.png"></a> -->
+          <a class="navbar-brand" href="<?=site_url('Page/index')?>">Speri-guds</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="<?=site_url('Page/index')?>">Home</a></li>
-            <li><a href="<?=site_url('Page/aboutUs')?>"><i class="glyphicon glyphicon-user"></i> Tentang</a></li>
-            <li><a href="<?=site_url('Page/petunjukBayar')?>"><i class="glyphicon glyphicon-briefcase"></i> Cara Bayar</a></li>
-            <li><a href="<?=site_url('Shopping/viewCart')?>"><i class="glyphicon glyphicon-shopping-cart"></i>  Keranjang Belanja</a></li>
+            <li class="active"><a href="<?=site_url('Page/index')?>">Beranda</a></li>
+            <li><a href="<?=site_url('Page/aboutUs')?>"> Tentang Kami</a></li>
+            <li><a href="<?=site_url('Page/petunjukBayar')?>"><i class="glyphicon glyphicon-briefcase"></i> Bantuan</a></li>
+            <li><a href="<?=site_url('Shopping/viewCart')?>"><i class="glyphicon glyphicon-shopping-cart"></i>  Keranjang</a></li>
+            <li><a href="<?=site_url('Customer/index')?>"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,47 +61,29 @@
 
         <div class="col-lg-3">
 
-          <!-- <div class="list-group">
-          	<a class="list-group-item"><strong>KATEGORI</strong></a>
-            <a href="<?php echo base_url()?>shopping/index/" class="list-group-item">Semua</a>
-          	<?php
-		          	foreach ($kategori as $row) 
-						{
-			?>
-            <a href="<?php echo base_url()?>shopping/index/<?php echo $row['id'];?>" class="list-group-item"><?php echo $row['nama_kategori'];?></a>
-            <?php
-						}
-			?> -->
-          <!-- </div> -->
-          <!-- <br> -->
-
            <div class="list-group">
-           <a href="<?=site_url('Shopping/viewCart')?>" class="list-group-item"><strong><i class="glyphicon glyphicon-shopping-cart"></i> KERANJANG BELANJA</strong></a>
-          <?php 
-		  
-		  	$cart= $this->cart->contents();
-
-// If cart is empty, this will show below message.
-			if(empty($cart)) {
-				?>
-                <a class="list-group-item">Keranjang Belanja Kosong</a>
-                <?php
-			}
-			else
-				{
-					$grand_total = 0;
-					foreach ($cart as $item)
-						{
-							$grand_total+=$item['subtotal'];
-				?>
-                <a class="list-group-item"><?php echo $item['name']; ?> (<?php echo $item['qty']; ?> x <?php echo number_format($item['price'],0,",","."); ?>)=<?php echo number_format($item['subtotal'],0,",","."); ?></a>
-                <?php	
-						}
-				?>
-
-                <?php		
-				}
- ?>
+            <a href="<?=site_url('Shopping/viewCart')?>" class="list-group-item"><strong><i class="glyphicon glyphicon-shopping-cart"></i> Keranjang Belanja</strong></a>
+          <?php 		
+            // If cart is empty, this will show below message.
+            if(empty($order_detail)) {
+              ?>
+                      <a class="list-group-item">Keranjang Belanja Kosong</a>
+                      <?php
+            }
+            else
+              {
+                $total = 0;
+                foreach ($order_detail as $item)
+                  {
+                    $total = $total + ($item['qty'] * $item['harga']);
+              ?>
+                      <a class="list-group-item"><?php echo $item['namaSparepart']; ?> (<?php echo $item['qty']; ?> x <?php echo number_format($item['harga'],0,",","."); ?>)<!-- =<?php echo number_format($item['subtotal'],0,",","."); ?> --></a>
+                      <?php	
+                  }
+              ?>
+                     
+                      <a class="list-group-item"><strong>Total Rp.</strong> <?php echo number_format($total,0,",",".");?></a>
+              <?php } ?>
 			</div>
         </div>
         <!-- /.col-lg-3 -->

@@ -5,7 +5,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="kotak">
               <form method="post" action="<?=site_url('Shopping/add')?>" method="post" accept-charset="utf-8">
-                <a href="#"><img class="img-thumbnail" src="<?php echo site_url() . 'assets/images/'.$row['foto']; ?>"/></a>
+                <a href="#"><img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/<?php echo $row['foto'] ?>"/></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?php echo $row['nama'];?></a>

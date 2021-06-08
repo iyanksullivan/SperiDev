@@ -16,13 +16,13 @@
     <title>Edit Profil Pengguna</title>
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-      <a class="navbar-brand text-white" href="#">Welcome User! | <b>SehatSlurr</b></a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
+      <a class="navbar-brand text-white" href="#">Welcome User! | <b>Speri-Guds</b></a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Temukan..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control" placeholder="Temukan..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-success" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -32,7 +32,7 @@
           <h5>
             <i class="fas fa-envelope mr-3" data-toggle="tooltip" title="Inbox"></i>
             <i class="fas fa-bell mr-3" data-toggle="tooltip" title="Notification"></i>
-            <a href="<?=site_url('Customer/logout')?>"><i class="fas fa-sign-out-alt bg-primary mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i></a>
+            <a href="<?=site_url('Customer/logout')?>"><i class="fas fa-sign-out-alt bg-success mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i></a>
           </h5>
         </div>
       </div>
@@ -57,9 +57,9 @@
               </li>
             </ul>
       </div> -->
-      <div class="col-xl-10 p-5 pt-2">
-          <h3><i class="fas fa-user mt-5 mr-2"></i>Edit Profile</h3><hr>
-            <div class="row">
+      <div style="margin:0 auto"class="col-xl-10 p-5 pt-2">
+          <h3 style="text-align:center;padding-top:25px">Edit Profile</h3><hr>
+            <div style="margin-left:250px;"class="row">
               <div class="col-lg-8">
                <?php echo form_open_multipart('Customer/editProfile');?>
                   <div class="form-group row">
@@ -67,7 +67,7 @@
                     <div class="col-sm-10">
                       <input type="text" class="form-control form-control-plaintext" id="nama" name="nama" value="<?= $data['nama']; ?>">
                     </div>
-                  </div>                  
+                  </div>
                   <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
@@ -104,7 +104,7 @@
                   </div> -->
                   <div class="form-group row justify-content-end">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Edit</button>
+                      <button type="submit" class="btn btn-success">Edit</button>
                     </div>
                   </div>
                   <?php echo form_close();  ?>
@@ -113,7 +113,7 @@
             <div class="row">
               <div class="col-sm-10">
                 <!-- <?php echo site_url('Customer/delete/'.$data['username']);?> -->
-              <a href="<?php echo site_url('Customer/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i class="fas fa-trash bg-danger text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
+              <a href="<?php echo site_url('Customer/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i style="margin-left:260px"class="fas fa-trash bg-success text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
               </div>
             </div>
           <footer class="sticky-footer bg-white mt-5">

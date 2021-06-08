@@ -8,6 +8,12 @@ class CartModel extends CI_Model {
         $query = $this->db->get('sparepart');
         return $query->result_array();
     }
+
+    public function getOrderDetailProduct()
+    {
+        $query = $this->db->get('order_detail');
+        return $query->result_array();
+    }
  
     public  function getProductId($id)
     {
@@ -27,13 +33,22 @@ class CartModel extends CI_Model {
     public function addOrder($data)
     {
         $this->db->insert('orders', $data);
-        $id = $this->db->insert_id();
-        return (isset($id)) ? $id : FALSE;
+        // $id = $this->db->insert_id();
+        // return (isset($id)) ? $id : FALSE;
+        return rand();
     }
  
     public function addDetailOrder($data)
     {
         $this->db->insert('order_detail', $data);
+    }
+
+    public function delete($id){
+        $this->db->where('id', $id)->delete('order_detail');
+    }
+
+    public function deleteAll(){
+        $this->db->empty_table('order_detail');
     }
 }
 ?>
