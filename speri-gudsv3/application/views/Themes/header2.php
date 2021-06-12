@@ -48,7 +48,7 @@
             <li><a href="<?=site_url('Page/aboutUs')?>"> Tentang Kami</a></li>
             <li><a href="<?=site_url('Page/petunjukBayar')?>"><i class="glyphicon glyphicon-briefcase"></i> Bantuan</a></li>
             <li><a href="<?=site_url('Shopping/viewCart')?>"><i class="glyphicon glyphicon-shopping-cart"></i>  Keranjang</a></li>
-            <li><a href="<?=site_url('Customer/index')?>"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
+            <li><a href="<?=site_url('Customer/index')?>"><i class="glyphicon glyphicon-user"></i> <?php echo $username; ?></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

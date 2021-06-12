@@ -9,7 +9,9 @@
     </div>
  <footer class="footer">
       <div class="container">
-        <p class="text-muted"><center>Speri-guds</center></p>
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy; Speri-guds 2021</span>
+        </div>
       </div>
     </footer>
 

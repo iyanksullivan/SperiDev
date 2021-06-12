@@ -16,6 +16,7 @@ class Shopping extends CI_Controller {
     {       
         $data['sparepart'] = $this->CartModel->getAllProduct();
         $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
+        $data['username'] = $this->session->username;
         $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/productList',$data);      
         $this->load->view('Themes/footer');  
@@ -24,6 +25,7 @@ class Shopping extends CI_Controller {
     {   
         if(isset($this->session->username)){
             $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
+            $data['username'] = $this->session->username;            
             $this->load->view('Themes/header2',$data);
             $this->load->view('Shopping/viewCart',$data);
             $this->load->view('Themes/footer');
@@ -38,7 +40,8 @@ class Shopping extends CI_Controller {
     {        
         $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
         $data['customer'] = $this->CustomerModel->getDataCust('username',$this->session->username);
-        $this->load->view('Themes/header2');
+        $data['username'] = $this->session->username;
+        $this->load->view('Themes/header2',$data);
         $this->load->view('Shopping/checkout',$data);
         $this->load->view('Themes/footer');
     }
@@ -48,6 +51,7 @@ class Shopping extends CI_Controller {
         
         $id=($this->uri->segment(3))?$this->uri->segment(3):0;            
         $data['detail'] = $this->CartModel->getProductId($id)->row_array();
+        $data['username'] = $this->session->username;
         $this->load->view('Themes/header2',$data);
         $this->load->view('Shopping/productDetail',$data);
         $this->load->view('Themes/footer');       
@@ -85,23 +89,13 @@ class Shopping extends CI_Controller {
         redirect('Shopping/viewCart');
     }
  
-    function edit()
-    {
-        $cart_info = $_POST['cart'] ;
-        foreach( $cart_info as $id => $cart)
-        {
-            $rowid = $cart['rowid'];
-            $harga = $cart['harga'];
-            $foto = $cart['foto'];
-            $total = $harga * $cart['qty'];
-            $qty = $cart['qty'];
-            $data = array('rowid' => $rowid,
-                            'harga' => $harga,
-                            'gambar' => $gambar,
-                            'total' => $total,
-                            'qty' => $qty);
-            $this->cart->update($data);
-        }
+    function edit($id)
+    {        
+		$this->form_validation->set_rules('qty','qty','required');
+        $data = array('id' => $id,                    
+                        'qty' => $this->input->post('qty'));
+        $this->cart->update($data);
+        
         redirect('Shopping/viewCart');
     }
  
@@ -131,13 +125,15 @@ class Shopping extends CI_Controller {
         //-------------------------Hapus Shopping cart--------------------------        
         $this->CartModel->deleteAll();
         $data['order'] = $kodeBayar;
-        $this->load->view('Themes/header2');
+        $data['username'] = $this->session->username;
+        $this->load->view('Themes/header2',$data);
         $this->load->view('Shopping/orderComplete',$data);
         $this->load->view('Themes/footer');
     }
 
     public function test(){
-        $this->load->view('Themes/header');
+        $data['username'] = $this->session->username;
+        $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/orderComplete');
         $this->load->view('Themes/footer');
     }

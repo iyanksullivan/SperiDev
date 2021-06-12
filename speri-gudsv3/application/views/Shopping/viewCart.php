@@ -14,7 +14,7 @@
       <td width="17%">Harga</td>
       <td width="8%">Qty</td>
       <td width="20%">Jumlah</td>
-      <td width="10%">Hapus</td>
+      <td width="10%">Aksi</td>
       </tr>
       <?php
       // Create form and send all values in "shopping/update_cart" function.
@@ -36,14 +36,16 @@
       <td><?php echo number_format($item['harga'], 0,",","."); ?></td>
       <td><input type="text" class="form-control input-sm" name="cart[<?php echo $item['id'];?>][qty]" value="<?php echo $item['qty'];?>" /></td>
       <td><?php echo number_format($item['qty'] * $item['harga'], 0,",",".") ?></td>
-      <td><a href="<?php echo site_url()?>/Shopping/delete/<?php echo $item['id'];?>" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a></td>
+      <td>
+        <a href="<?php echo site_url()?>/Shopping/delete/<?php echo $item['id'];?>" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+        <a href="<?php echo site_url()?>/Shopping/edit/<?php echo $item['id'];?>" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-edit"></i></button>
+      </td>
       <?php endforeach; ?>
       </tr>
       <tr>
       <td colspan="3"><b>Order Total: Rp <?php echo number_format($total, 0,",","."); ?></b></td>
       <td colspan="4" align="right">
-      <a data-toggle="modal" data-target="#myModal"  class ='btn btn-sm btn-danger'>Kosongkan Cart</a>
-      <button class='btn btn-sm btn-success'  type="submit">Update Cart</button>
+      <a data-toggle="modal" data-target="#myModal"  class ='btn btn-sm btn-danger'>Kosongkan Cart</a>      
       <a href="<?php echo site_url()?>/Shopping/checkout"  class ='btn btn-sm btn-primary'>Check Out</a>
       </tr>
 

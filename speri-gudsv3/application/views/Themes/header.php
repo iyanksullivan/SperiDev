@@ -40,15 +40,15 @@
             < class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>assets/logos.png"></a> -->
-          <a class="navbar-brand" href="<?=site_url('Page/index')?>">Speri-guds</a>
+          <a class="navbar-brand text-white" href="<?=site_url('Page/index')?>">Speri-guds</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="<?=site_url('Page/index')?>">Beranda</a></li>
             <li><a href="<?=site_url('Page/aboutUs')?>"> Tentang Kami</a></li>
             <li><a href="<?=site_url('Page/petunjukBayar')?>"><i class="glyphicon glyphicon-briefcase"></i> Bantuan</a></li>
-            <li><a href="<?=site_url('Shopping/viewCart')?>"><i class="glyphicon glyphicon-shopping-cart"></i>  Keranjang</a></li>
-            <li><a href="<?=site_url('Customer/index')?>"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
+            <li><a href="<?=site_url('Shopping/viewCart')?>"><i class="glyphicon glyphicon-shopping-cart"></i>  Keranjang</a></li>            
+            <li><a href="<?=site_url('Customer/index')?>"><i class="glyphicon glyphicon-user"></i> <?php echo $username; ?></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
