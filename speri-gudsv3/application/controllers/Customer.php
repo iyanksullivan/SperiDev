@@ -16,7 +16,10 @@ class Customer extends CI_Controller {
 
 		if(isset($this->session->username)){
 			$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
-			$this->load->view('Customer/userEdit',$data);			
+			$data['username'] = $this->session->username;
+        	$this->load->view('Themes/header2',$data);		
+			$this->load->view('Customer/userEdit2',$data);
+			$this->load->view('Themes/footer');		
 
 		}
 		else{
@@ -46,7 +49,7 @@ class Customer extends CI_Controller {
 			}
 			else{
 				$this->session->set_userdata('username',$data['username']);
-				redirect('Customer/index');
+				redirect('Page/index');
 			}			
 		}			
 	}
@@ -95,8 +98,11 @@ class Customer extends CI_Controller {
 		//untuk mengambil data yang sudah ada di dalam database
 		$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
 		
-		if($this->form_validation->run() == false){			
-			$this->load->view('Customer/userEdit',$data);
+		if($this->form_validation->run() == false){	
+			$data['username'] = $this->session->username;
+        	$this->load->view('Themes/header2',$data);		
+			$this->load->view('Customer/userEdit2',$data);
+			$this->load->view('Themes/footer');
 		}
 		else{
 			//untuk update data
@@ -127,5 +133,28 @@ class Customer extends CI_Controller {
 	public function logout(){		
 		$this->session->sess_destroy();
 		redirect('Customer/index');
+	}
+
+	public function test()
+	{	
+		//pembuatan rules untuk form yg wajib diisi
+		$this->form_validation->set_rules('username','Username','required');
+		$this->form_validation->set_rules('password','Password','required');		
+	
+		//jika data tidak full maka akan dikembalikan ke form login
+		if($this->form_validation->run() == false){
+			$this->load->view('Customer/test');	
+		}
+		else{		
+			$data['username'] = $this->input->post('username');
+			$data['password'] = $this->input->post('password');
+			if(!$this->CustomerModel->checkAuth($data)){						
+				echo "check auth gagal";
+			}
+			else{
+				echo "check auth berhasil";
+			}			
+		}					
+
 	}
 }

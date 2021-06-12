@@ -11,22 +11,23 @@ class Page extends CI_Controller {
     }
     public function index()
         {
-            $data['sparepart'] = $this->CartModel->getAllProduct();        
+            $data['sparepart'] = $this->CartModel->getAllProduct();  
+            $data['username'] = $this->session->username;
             $this->load->view('Themes/header',$data);
             $this->load->view('Shopping/productList',$data);
             $this->load->view('Themes/footer');
         }
     public function aboutUs()
         {
-            // $data['kategori'] = $this->CartModel->get_kategori_all();
-            $this->load->view('Themes/header');
+            $data['username'] = $this->session->username;
+            $this->load->view('Themes/header',$data);
             $this->load->view('Page/aboutUs');
             $this->load->view('Themes/footer');
         }
     public function petunjukBayar()
         {
-            // $data['kategori'] = $this->CartModel->get_kategori_all();
-            $this->load->view('Themes/header');
+            $data['username'] = $this->session->username;
+            $this->load->view('Themes/header',$data);
             $this->load->view('Page/petunjukBayar');
             $this->load->view('Themes/footer');
         }

@@ -16,22 +16,24 @@ class CustomerModel extends CI_Model{
     public function checkAuth($data){
         //disini kita akan memanggilkan fungsi diatas dimana dia akan mengecek username 
         $this->db->where('username', $data['username']);
-        $check =  $this->db->count_all_results('customer'); 
-        if($check > 0){
+        $check =  $this->db->count_all_results('customer'); //1
+        if($check > 0){ //2
             //jika nik valid selanjutnya melakukan pengecekan password
-            $this->db->where('username',$data['username']);
+            $this->db->where('username',$data['username']); //3
             $pass = $this->db->get('customer')->row_array();
-            if($pass['password'] == $data['password'] ){
-                return true;
+            if($pass['password'] == $data['password'] ){ //4
+                $stat =  true; //5
             }
-            else{
-                return false;
+            else{ //6
+                $stat =  false;//7
             }            
         }
-        else{
+        else{ //8
             //Jika nik tidak ada maka otomatis invalid
-            return false;
+            $stat = false; //9
         }
+
+        return $stat; //10
     }
 
     // fungsi untuk melakukan penyimpanan admin kedalam database

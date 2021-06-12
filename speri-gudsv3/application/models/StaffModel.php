@@ -7,12 +7,12 @@ class StaffModel extends CI_Model{
     }
 
     public function auth_staff($data){
-        $this->db->where('NAMA',$data['NAMA']);
+        $this->db->where('nama',$data['NAMA']);
         $check = $this->db->count_all_results('staff_gudang');
         if($check>0){
-            $this->db->where('NAMA',$data['NAMA']);
+            $this->db->where('nama',$data['NAMA']);
             $pass = $pass = $this->db->get('staff_gudang')->row_array();
-            if($pass['PASSWORDS'] == $data['Password']){
+            if($pass['passwords'] == $data['Password']){
                 return true;
             }else{
                 return false;
@@ -25,11 +25,11 @@ class StaffModel extends CI_Model{
     }
 
     public function update($data){       
-        $this->db->where('NAMA', $data['NAMA'])->update('staff_gudang', $data);
+        $this->db->where('nama', $data['NAMA'])->update('staff_gudang', $data);
     }
 
     public function delete($username){
-        $this->db->where('NAMA', $username)->delete('staff_gudang');
+        $this->db->where('nama', $username)->delete('staff_gudang');
     }
 
 }

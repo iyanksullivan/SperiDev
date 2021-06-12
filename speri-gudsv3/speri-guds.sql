@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 03:39 PM
+-- Generation Time: Jun 08, 2021 at 05:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -44,7 +44,8 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`uid`, `username`, `password`, `nama`, `alamat`, `telp`, `foto`) VALUES
 (2, 'admin', '123', 'admin test', 'Bandung', '08268362917', ''),
-(3, 'dendyandra', 'poi', 'Dendy Andra', 'Bandung', '08457389264', '');
+(3, 'dendyandra', 'poi', 'Dendy Andra', 'Bandung', '08457389264', ''),
+(5, 'agus', 'qwerty', 'Agus W', 'jakarta', '', '');
 
 -- --------------------------------------------------------
 
@@ -101,9 +102,17 @@ INSERT INTO `manager` (`nik`, `nama`, `passwords`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `uid` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `username`, `tanggal`) VALUES
+(1, 'admin', '2021-06-08'),
+(2, 'admin', '2021-06-08');
 
 -- --------------------------------------------------------
 
@@ -113,10 +122,11 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `order_detail` (
   `id` int(11) NOT NULL,
-  `order_id` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `namaSparepart` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `foto` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -224,7 +234,7 @@ ALTER TABLE `staff_gudang`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `log`
@@ -236,13 +246,13 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

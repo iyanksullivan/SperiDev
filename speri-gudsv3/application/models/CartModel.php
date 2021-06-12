@@ -43,6 +43,11 @@ class CartModel extends CI_Model {
         $this->db->insert('order_detail', $data);
     }
 
+    //ini fungsi update data dalam database dengan id order_detail spesifik
+    public function update($data){       
+        $this->db->where('id', $data['id'])->update('order_detail', $data);
+    }
+
     public function delete($id){
         $this->db->where('id', $id)->delete('order_detail');
     }
