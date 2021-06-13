@@ -40,7 +40,7 @@
             < class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>assets/logos.png"></a> -->
-          <a class="navbar-brand text-white" href="<?=site_url('Page/index')?>">Speri-guds</a>
+          <a class="navbar-brand text-white" href="<?=site_url('Page/index')?>" style="padding-top: 12px;"><Strong>Speri-guds</Strong></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -57,15 +57,14 @@
     <!-- Begin page content -->
 <div class="container">
 
-<div class="row">
-
-        <div class="col-lg-3">
+<div class="row">        
+        <div class="col-lg-3" style="margin-top:53px">
 
            <div class="list-group">
             <a href="<?=site_url('Shopping/viewCart')?>" class="list-group-item"><strong><i class="glyphicon glyphicon-shopping-cart"></i> Keranjang Belanja</strong></a>
           <?php 		
             // If cart is empty, this will show below message.
-            if(empty($order_detail)) {
+            if(empty($cart)) {
               ?>
                       <a class="list-group-item">Keranjang Belanja Kosong</a>
                       <?php
@@ -73,7 +72,7 @@
             else
               {
                 $total = 0;
-                foreach ($order_detail as $item)
+                foreach ($cart as $item)
                   {
                     $total = $total + ($item['qty'] * $item['harga']);
               ?>
@@ -83,6 +82,7 @@
               ?>
                      
                       <a class="list-group-item"><strong>Total Rp.</strong> <?php echo number_format($total,0,",",".");?></a>
+                      <a href="<?php echo site_url()?>/Shopping/viewCart"  class ='btn btn-success' style="width:100%">Pesan Sekarang</a>
               <?php } ?>
 			</div>
         </div>

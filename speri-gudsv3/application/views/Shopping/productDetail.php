@@ -6,7 +6,7 @@
  <p class="card-text">
 <strong> <u>Deskripsi</u></strong><br>
  <!-- <?php echo $detail['deskripsi'];?></p> -->
-  <input type="hidden" name="id" value="<?php echo $detail['kode']; ?>" />
+  <input type="hidden" name="kodeSparepart" value="<?php echo $detail['kode']; ?>" />
   <input type="hidden" name="nama" value="<?php echo $detail['nama']; ?>" />
   <input type="hidden" name="harga" value="<?php echo $detail['harga']; ?>" />
   <input type="hidden" name="foto" value="<?php echo $detail['foto']; ?>" />

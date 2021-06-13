@@ -135,6 +135,22 @@ class Customer extends CI_Controller {
 		redirect('Customer/index');
 	}
 
+	public function viewHistory()
+	{
+
+		if(isset($this->session->username)){
+			$data['order'] = $this->CustomerModel->getAllOrders($this->session->username);
+			$data['username'] = $this->session->username;
+        	$this->load->view('Themes/header2',$data);		
+			$this->load->view('Customer/viewOrderHistory',$data);
+			$this->load->view('Themes/footer');		
+
+		}
+		else{
+			redirect('Customer/login');
+		}
+	}
+
 	public function test()
 	{	
 		//pembuatan rules untuk form yg wajib diisi

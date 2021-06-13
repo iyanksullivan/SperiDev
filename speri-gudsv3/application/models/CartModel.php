@@ -11,7 +11,7 @@ class CartModel extends CI_Model {
 
     public function getOrderDetailProduct()
     {
-        $query = $this->db->get('order_detail');
+        $query = $this->db->get('cart');
         return $query->result_array();
     }
  
@@ -22,38 +22,50 @@ class CartModel extends CI_Model {
         $this->db->where('kode',$id);
         return $this->db->get();
     }   
- 
-    public function addCustomer($data)
+
+    public  function getProductOrder($id)
     {
-        $this->db->insert('customer', $data);
-        $id = $this->db->insert_id();
-        return (isset($id)) ? $id : FALSE;
-    }
+        $this->db->select('cart.*');
+        $this->db->from('cart');        
+        $this->db->where('kodeSparepart',$id);
+        return $this->db->get();
+    }   
+    // public  function getOrderByName($name)
+    // {
+    //     $this->db->select('cart.*');
+    //     $this->db->from('sparepart');        
+    //     $this->db->where('kode',$name);
+    //     return $this->db->get();
+    // }   
+ 
+    // public function addCustomer($data)
+    // {
+    //     $this->db->insert('customer', $data);
+    //     $id = $this->db->insert_id();
+    //     return (isset($id)) ? $id : FALSE;
+    // }
  
     public function addOrder($data)
     {
         $this->db->insert('orders', $data);
-        // $id = $this->db->insert_id();
-        // return (isset($id)) ? $id : FALSE;
-        return rand();
     }
  
     public function addDetailOrder($data)
     {
-        $this->db->insert('order_detail', $data);
+        $this->db->insert('cart', $data);
     }
 
-    //ini fungsi update data dalam database dengan id order_detail spesifik
-    public function update($data){       
-        $this->db->where('id', $data['id'])->update('order_detail', $data);
+    //ini fungsi update data dalam database dengan id cart spesifik
+    public function updateOrder($id,$data){       
+        $this->db->where('id', $id)->update('cart', $data);
     }
 
     public function delete($id){
-        $this->db->where('id', $id)->delete('order_detail');
+        $this->db->where('id', $id)->delete('cart');
     }
 
-    public function deleteAll(){
-        $this->db->empty_table('order_detail');
+    public function deleteAllCart(){
+        $this->db->empty_table('cart');
     }
 }
 ?>

@@ -1,4 +1,4 @@
-<h2>Tentang Komang.My.ID Shop</h2>
+<h2>Tentang Speri-guds</h2>
 <h3>Naskah Lorem Ipsum standar yang digunakan sejak tahun 1500an</h3>
 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 <h3>Bagian 1.10.32 dari "de Finibus Bonorum et Malorum", ditulis oleh Cicero pada tahun 45 sebelum masehi</h3>

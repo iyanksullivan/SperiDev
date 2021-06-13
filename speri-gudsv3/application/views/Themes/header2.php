@@ -40,7 +40,7 @@
             < class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>assets/logos.png"></a> -->
-          <a class="navbar-brand" href="<?=site_url('Page/index')?>">Speri-guds</a>
+          <a class="navbar-brand" href="<?=site_url('Page/index')?>" style="padding-top: 12px;"><Strong>Speri-guds</Strong></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">

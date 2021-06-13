@@ -13,6 +13,7 @@ class Page extends CI_Controller {
         {
             $data['sparepart'] = $this->CartModel->getAllProduct();  
             $data['username'] = $this->session->username;
+            $data['cart'] = $this->CartModel->getOrderDetailProduct();  
             $this->load->view('Themes/header',$data);
             $this->load->view('Shopping/productList',$data);
             $this->load->view('Themes/footer');
@@ -20,6 +21,7 @@ class Page extends CI_Controller {
     public function aboutUs()
         {
             $data['username'] = $this->session->username;
+            $data['cart'] = $this->CartModel->getOrderDetailProduct();  
             $this->load->view('Themes/header',$data);
             $this->load->view('Page/aboutUs');
             $this->load->view('Themes/footer');
@@ -27,6 +29,7 @@ class Page extends CI_Controller {
     public function petunjukBayar()
         {
             $data['username'] = $this->session->username;
+            $data['cart'] = $this->CartModel->getOrderDetailProduct();  
             $this->load->view('Themes/header',$data);
             $this->load->view('Page/petunjukBayar');
             $this->load->view('Themes/footer');

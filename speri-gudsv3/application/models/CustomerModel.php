@@ -6,6 +6,13 @@ class CustomerModel extends CI_Model{
         return $this->db->get_where('customer', [$key => $value])->row_array();
     }
 
+    //fungsi untuk mengembalikan data dari order
+    public function getAllOrders($uname){
+        $this->db->where('username',$uname);
+        $pass = $this->db->get('orders')->result_array();
+        return $pass;
+    }
+
     //fungsi untuk mengembalikan semua data customer 
     public function getAllData(){
         $query = $this->db->get('customer');

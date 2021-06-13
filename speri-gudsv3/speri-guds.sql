@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 05:42 PM
+-- Generation Time: Jun 13, 2021 at 10:57 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `speri-guds`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `namaSparepart` varchar(50) NOT NULL,
+  `kodeSparepart` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `foto` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,9 +59,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`uid`, `username`, `password`, `nama`, `alamat`, `telp`, `foto`) VALUES
-(2, 'admin', '123', 'admin test', 'Bandung', '08268362917', ''),
 (3, 'dendyandra', 'poi', 'Dendy Andra', 'Bandung', '08457389264', ''),
-(5, 'agus', 'qwerty', 'Agus W', 'jakarta', '', '');
+(5, 'agus', 'qwerty', 'Agus W', 'jakarta', '', ''),
+(6, 'admin', '123', 'Admin', 'Jl. Tol Timur VII Blok E22', '084573892645', '');
 
 -- --------------------------------------------------------
 
@@ -103,30 +119,11 @@ INSERT INTO `manager` (`nik`, `nama`, `passwords`) VALUES
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `username`, `tanggal`) VALUES
-(1, 'admin', '2021-06-08'),
-(2, 'admin', '2021-06-08');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_detail`
---
-
-CREATE TABLE `order_detail` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `namaSparepart` varchar(50) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `foto` varchar(50) NOT NULL
+  `kodeBayar` varchar(50) NOT NULL,
+  `tanggal` date NOT NULL,
+  `total` int(11) NOT NULL,
+  `bank` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -185,6 +182,12 @@ INSERT INTO `staff_gudang` (`nik`, `nama`, `passwords`, `hak_akses`) VALUES
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -209,12 +212,6 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_detail`
---
-ALTER TABLE `order_detail`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `sparepart`
 --
 ALTER TABLE `sparepart`
@@ -231,10 +228,16 @@ ALTER TABLE `staff_gudang`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `log`
@@ -246,13 +249,7 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `order_detail`
---
-ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
