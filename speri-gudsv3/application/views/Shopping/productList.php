@@ -17,11 +17,11 @@
                   <a href="<?php echo site_url();?>/Shopping/productDetail/<?php echo $row['kode'];?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-search"></i> Detail</a> 
  
  
-                  <input type="hidden" name="id" value="<?php echo $row['kode']; ?>" />
+                  <input type="hidden" name="kodeSparepart" value="<?php echo $row['kode']; ?>" />
                   <input type="hidden" name="nama" value="<?php echo $row['nama']; ?>" />
                   <input type="hidden" name="harga" value="<?php echo $row['harga']; ?>" />
                   <input type="hidden" name="foto" value="<?php echo $row['foto']; ?>" />
-                  <input type="hidden" name="qty" value="1" />
+                  <input type="hidden" name="qty" value="1" />                  
                   <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-shopping-cart"></i> Beli</button>
                 </div>
                 </form>

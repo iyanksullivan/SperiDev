@@ -31,15 +31,17 @@
                   <div class="form-group row justify-content-end">
                     <div class="col-sm-10">
                       <button type="submit" class="btn btn-sm btn-success">Edit</button>
-                    </div>
+                      <a href="<?php echo site_url('Customer/logout')?>" class="btn btn-sm btn-primary">Log Out</a>
+                      <a href="<?php echo site_url('Customer/viewHistory')?>" class="btn btn-sm btn-warning">Lihat Histori Pesanan</a>
+                    </div>                    
                   </div>
                   <?php echo form_close();  ?>
               </div>  
-            </div>
-            <div class="row">
-              <div class="col-sm-10">
-                <!-- <?php echo site_url('Customer/delete/'.$data['username']);?> -->
-              <a href="<?php echo site_url('Customer/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i style="margin-left:260px"class="fas fa-trash bg-success text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
+              <div class="row">
+              <div class="col-sm-10">                
+                <a href="<?php echo site_url('Customer/delete/');?>" class="btn btn-sm btn-danger" style="margin-left:14px;" onclick="return confirm('Apakah anda yakin menghapus akun ini?');">Hapus Akun</a>
               </div>
+            </div>
+            
             </div>          
 </div>

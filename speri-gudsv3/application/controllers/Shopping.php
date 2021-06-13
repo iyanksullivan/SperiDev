@@ -15,7 +15,7 @@ class Shopping extends CI_Controller {
     public function index()
     {       
         $data['sparepart'] = $this->CartModel->getAllProduct();
-        $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
+        $data['cart'] = $this->CartModel->getOrderDetailProduct();
         $data['username'] = $this->session->username;
         $this->load->view('Themes/header',$data);
         $this->load->view('Shopping/productList',$data);      
@@ -24,7 +24,7 @@ class Shopping extends CI_Controller {
     public function viewCart()
     {   
         if(isset($this->session->username)){
-            $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
+            $data['cart'] = $this->CartModel->getOrderDetailProduct();
             $data['username'] = $this->session->username;            
             $this->load->view('Themes/header2',$data);
             $this->load->view('Shopping/viewCart',$data);
@@ -38,7 +38,7 @@ class Shopping extends CI_Controller {
  
     public function checkout()
     {        
-        $data['order_detail'] = $this->CartModel->getOrderDetailProduct();
+        $data['cart'] = $this->CartModel->getOrderDetailProduct();
         $data['customer'] = $this->CustomerModel->getDataCust('username',$this->session->username);
         $data['username'] = $this->session->username;
         $this->load->view('Themes/header2',$data);
@@ -65,7 +65,8 @@ class Shopping extends CI_Controller {
                                 'namaSparepart' => $this->input->post('nama'),
                                 'harga' => $this->input->post('harga'),                             
                                 'qty' =>$this->input->post('qty'),
-                                'foto' =>$this->input->post('foto')
+                                'foto' =>$this->input->post('foto'),
+                                'kodeSparepart' =>$this->input->post('kodeSparepart')
                                 );
             // $this->cart->insert($data_produk);
             $this->CartModel->addDetailOrder($data_produk);
@@ -80,7 +81,7 @@ class Shopping extends CI_Controller {
     {
         if ($id=="all")
             {
-                $this->CartModel->deleteAll();
+                $this->CartModel->deleteAllCart();
             }
         else
             {
@@ -89,41 +90,42 @@ class Shopping extends CI_Controller {
         redirect('Shopping/viewCart');
     }
  
-    function edit($id)
-    {        
-		$this->form_validation->set_rules('qty','qty','required');
-        $data = array('id' => $id,                    
-                        'qty' => $this->input->post('qty'));
-        $this->cart->update($data);
+    public function edit($id)
+    {                
+        $this->form_validation->set_rules('qty','qty','required');
         
-        redirect('Shopping/viewCart');
-    }
+        $data['username'] = $this->session->username;
+        $data['detail'] = $this->CartModel->getProductOrder($id)->row_array();            
+        if($this->form_validation->run() == false){
+            $this->load->view('Themes/header2',$data);
+            $this->load->view('Shopping/editOrder',$data);
+            $this->load->view('Themes/footer');		
+        }
+        else{
+            
+            $qty = $this->input->post('qty');
+            if($qty){
+                $data = array('qty' =>$qty);
+                $this->CartModel->updateOrder($id,$data);                
+            }
+            redirect('Shopping/viewCart');
+            
+        }	
+        
+    }    
  
     public function order()
-    {
-        //-------------------------Input data pelanggan--------------------------
-        // $data_pelanggan = array('nama' => $this->input->post('nama'),                            
-        //                     'alamat' => $this->input->post('alamat'),
-        //                     'telp' => $this->input->post('telp'));
-        // $idCustomer = $this->CartModel->addCustomer($data_pelanggan);
-        //-------------------------Input data order------------------------------
+    {        
+        $kodeBayar = rand();
         $data_order = array('tanggal' => date('Y-m-d'),
-                            'username' => $this->session->username);
-        $kodeBayar = $this->CartModel->addOrder($data_order);
-        //-------------------------Input data detail order-----------------------
-        // if ($cart = $this->cart->contents())
-        //     {
-        //         foreach ($cart as $item)
-        //             {
-        //                 $data_detail = array('order_id' =>$idOrder,
-        //                                 'produk' => $item['id'],
-        //                                 'qty' => $item['qty'],
-        //                                 'harga' => $item['harga']);
-        //                 $proses = $this->CartModel->addDetailOrder($data_detail);
-        //             }
-        //     }
-        //-------------------------Hapus Shopping cart--------------------------        
-        $this->CartModel->deleteAll();
+                            'username' => $this->session->username,
+                            'kodeBayar' => $kodeBayar,
+                            'total' => $this->input->post('total'),
+                            'bank' => $this->input->post('bank'),
+                            'status' => 'Belum Lunas');
+        $this->CartModel->addOrder($data_order);
+        $this->CartModel->deleteAllCart();
+        
         $data['order'] = $kodeBayar;
         $data['username'] = $this->session->username;
         $this->load->view('Themes/header2',$data);
