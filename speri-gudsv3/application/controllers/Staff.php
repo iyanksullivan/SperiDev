@@ -11,7 +11,7 @@ class Staff extends CI_Controller{
     public function index(){
         if (isset($this->session->username)){
             $data['data'] = $this->StaffModel->getDataStaff('NAMA',$this->session->username);
-            $this->load->view('Staff/staffEdit',$data);
+            $this->load->view('Staff/dashboard',$data);
         }else{
             redirect('Staff/Login');
         }
@@ -52,12 +52,14 @@ class Staff extends CI_Controller{
 		}
 		else{
 			//untuk update .
-			if($this->input->post('password') == $this->input->post('re-password')){	
-				$data = [              
-					'NAMA' => $this->session->username,
+			if($this->input->post('password') == $this->input->post('re-password')){
+				$old = ['OLD_UNAME' => $this->session->username];	
+				$data = [          
+					'NAMA' => $this->input->post('nama',true),
 					'PASSWORDS' => $this->input->post('password',true),
 				];			
-				$this->StaffModel->update($data);
+				$this->StaffModel->update($data,$old);
+				$this->session->set_userdata('username',$data['NAMA']);
 				//jika sudah success maka akan di redirect ke page index.
 				redirect('Staff/index');
 			}

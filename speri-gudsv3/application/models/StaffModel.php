@@ -24,8 +24,8 @@ class StaffModel extends CI_Model{
        $this->db->insert('staff_gudang', $data);
     }
 
-    public function update($data){       
-        $this->db->where('nama', $data['NAMA'])->update('staff_gudang', $data);
+    public function update($data,$old){       
+        $this->db->where('nama', $old['OLD_UNAME'])->update('staff_gudang', $data);
     }
 
     public function delete($username){
