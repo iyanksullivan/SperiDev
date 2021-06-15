@@ -12,7 +12,7 @@ class Manager extends CI_Controller{
     public function index(){
         if (isset($this->session->username)){
             $data['data'] = $this->ManagerModel->getDataManager('nama',$this->session->username);
-            $this->load->view('Manager/ManagerAddStaff',$data);
+            $this->load->view('Manager/dashboard',$data);
         }else{
             redirect('Manager/Login');
         }
