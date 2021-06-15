@@ -13,5 +13,6 @@
     </h1>  
     <button type="button" class="btn btn-success" onclick="window.location='<?php echo site_url("Sparepart/AddSparepart");?>'">Add Sparepart</button>
     <button type="button" class="btn btn-success" onclick="window.location='<?php echo site_url("Sparepart/dashboardedit");?>'">Edit Sparepart</button>
+    <button type="button" class="btn btn-success" onclick="window.location='<?php echo site_url("Staff/edit_staff");?>'">Edit Profile</button>
 </head>
 </html>

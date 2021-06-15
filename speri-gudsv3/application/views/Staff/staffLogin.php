@@ -88,7 +88,7 @@
                         <div class="form-group">
                         <!-- Form username -->
                             <label for="username">Username</label>
-                            <input type="username" class="form-control" name="username" size="35px;" placeholder="Username...">
+                            <input type="username" class="form-control" name="username" size="35px;" placeholder="username....">
                           
                         </div>
                         <!-- Form password -->
