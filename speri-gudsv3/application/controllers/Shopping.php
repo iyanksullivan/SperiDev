@@ -87,7 +87,13 @@ class Shopping extends CI_Controller {
             {
                 $this->CartModel->delete($id);
             }
-        redirect('Shopping/viewCart');
+        // redirect('Shopping/viewCart');
+        $data['alert'] = "Produk berhasil dihapus";
+        $data['cart'] = $this->CartModel->getOrderDetailProduct();
+        $data['username'] = $this->session->username;            
+        $this->load->view('Themes/header2',$data);
+        $this->load->view('Shopping/viewCart',$data);
+        $this->load->view('Themes/footer');		
     }
  
     public function edit($id)
@@ -103,13 +109,36 @@ class Shopping extends CI_Controller {
         }
         else{
             
-            $qty = $this->input->post('qty');
-            if($qty){
-                $data = array('qty' =>$qty);
-                $this->CartModel->updateOrder($id,$data);                
+            $qty = $this->input->post('qty');           
+            $kodeSparepart = $this->input->post('kodeSparepart');
+            if($qty){                
+                if($this->CartModel->checkQty($kodeSparepart,$qty)){
+                    $data = array('qty' =>$qty);
+                    $this->CartModel->updateOrder($id,$data);                      
+                    $data['alert'] = "Jumlah pembelian berhasil diubah";
+                    $data['cart'] = $this->CartModel->getOrderDetailProduct();
+                    $data['username'] = $this->session->username;            
+                    $this->load->view('Themes/header2',$data);
+                    $this->load->view('Shopping/viewCart',$data);
+                    $this->load->view('Themes/footer');	    
+                }
+                else{
+                    $data['error'] = "Jumlah pembelian melebihi stok!";
+                    $data['cart'] = $this->CartModel->getOrderDetailProduct();
+                    $data['username'] = $this->session->username;            
+                    $this->load->view('Themes/header2',$data);
+                    $this->load->view('Shopping/viewCart',$data);
+                    $this->load->view('Themes/footer');	 
+                }      
             }
-            redirect('Shopping/viewCart');
-            
+            else{
+                $data['error'] = "Jumlah pembelian tidak valid!";
+                $data['cart'] = $this->CartModel->getOrderDetailProduct();
+                $data['username'] = $this->session->username;            
+                $this->load->view('Themes/header2',$data);
+                $this->load->view('Shopping/viewCart',$data);
+                $this->load->view('Themes/footer');	
+            }                        	            
         }	
         
     }    

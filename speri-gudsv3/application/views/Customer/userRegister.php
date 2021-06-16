@@ -37,13 +37,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Nama</label>
-                                    <input class="input--style-4" type="text" name="nama">
+                                    <input class="input--style-4" type="text" name="nama" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Alamat</label>
-                                    <input class="input--style-4" type="text" name="alamat">
+                                    <input class="input--style-4" type="text" name="alamat" required>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Username</label>
-                                    <input class="input--style-4" type="text" name="username">
+                                    <input class="input--style-4" type="text" name="username" required>
                                 </div>
                             </div>
                         </div>
@@ -59,15 +59,18 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="password">
+                                    <input class="input--style-4" type="password" name="password" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Konfirmasi Password</label>
-                                    <input class="input--style-4" type="password" name="re-password">
+                                    <input class="input--style-4" type="password" name="re-password" required>
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <?php if(!empty($error)){echo $error;} ?>
                         </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>

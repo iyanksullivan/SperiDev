@@ -19,7 +19,7 @@
             <div class="form-group  has-success has-feedback">
                 <label class="control-label col-xs-3" for="inputEmail">Email:</label>
                 <div class="col-xs-9">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div>
             </div>
             <div class="form-group  has-success has-feedback">
@@ -36,19 +36,19 @@
             <div class="form-group  has-success has-feedback">
                 <label class="control-label col-xs-3" for="firstName">Nama :</label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap" value="<?php echo $customer['nama']?>">
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap" value="<?php echo $customer['nama']?>" required>
                 </div>
             </div>
             <div class="form-group  has-success has-feedback">
                 <label class="control-label col-xs-3" for="lastName">Alamat:</label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $customer['alamat']?>">
+                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $customer['alamat']?>" required>
                 </div>
             </div>
             <div class="form-group  has-success has-feedback">
                 <label class="control-label col-xs-3" for="phoneNumber">Telp:</label>
                 <div class="col-xs-9">
-                    <input type="tel" class="form-control" name="telp" id="telp" placeholder="No Telp" value="<?php echo $customer['telp']?>">
+                    <input type="tel" class="form-control" name="telp" id="telp" placeholder="No Telp" value="<?php echo $customer['telp']?>" required>
                 </div>
             </div>
             
