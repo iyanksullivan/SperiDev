@@ -12,7 +12,7 @@ class Manager extends CI_Controller{
     public function index(){
         if (isset($this->session->username)){
             $data['data'] = $this->ManagerModel->getDataManager('nama',$this->session->username);
-            $this->load->view('Manager/ManagerAddStaff',$data);
+            $this->load->view('Manager/dashboard',$data);
         }else{
             redirect('Manager/Login');
         }
@@ -79,9 +79,8 @@ class Manager extends CI_Controller{
                 'hak_akses' => $hak_akses,
             ];
             $this->ManagerModel->addstaff($data);
-            redirect('Manager/edit_manager');
+            redirect('Manager/index');
         }
-        echo "error";
         // $this->load->view('Manager/ManagerEdit');
     }
 

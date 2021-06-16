@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // http://localhost/speri-gudsv3/
-$config['base_url'] = 'http://localhost/speri-gudsv3/';
+$config['base_url'] = 'http://localhost/SperiDev-master/';
 
 /*
 |--------------------------------------------------------------------------

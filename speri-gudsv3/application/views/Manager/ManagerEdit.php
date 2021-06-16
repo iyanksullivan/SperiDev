@@ -17,7 +17,7 @@
   </head>
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-      <a class="navbar-brand text-white" href="#">Welcome User! | <b>SehatSlurr</b></a>
+      <a class="navbar-brand text-white" href="#">Welcome Manager! | <b>Speri-guds</b></a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Temukan..." aria-label="Search" aria-describedby="basic-addon2">
@@ -32,7 +32,7 @@
           <h5>
             <i class="fas fa-envelope mr-3" data-toggle="tooltip" title="Inbox"></i>
             <i class="fas fa-bell mr-3" data-toggle="tooltip" title="Notification"></i>
-            <a href="<?=site_url('Staff/logout')?>"><i class="fas fa-sign-out-alt bg-primary mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i></a>
+            <a href="<?=site_url('Manager/logout')?>"><i class="fas fa-sign-out-alt bg-primary mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i></a>
           </h5>
         </div>
       </div>
@@ -110,13 +110,13 @@
               <a href="<?php echo site_url('Manager/delete/');?>" onclick="return confirm('Apakah anda yakin menghapus akun ini?');"><i class="fas fa-trash bg-danger text-white p-2 rounded" data-toggle="tooltip" title="Hapus" ></i></i></a>
               </div>
             </div>
-          <footer class="sticky-footer bg-white mt-5">
+          <!-- <footer class="sticky-footer bg-white mt-5">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
               <span>Copyright &copy; Speri-guds 2021</span>
             </div>
           </div>
-        </footer>
+        </footer> -->
         </div>
       </div>
     </div>

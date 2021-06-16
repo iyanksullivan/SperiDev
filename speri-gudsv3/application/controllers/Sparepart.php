@@ -9,7 +9,7 @@ class Sparepart extends CI_Controller{
     }
 
     public function index(){
-        $this->load->view('Sparepart/dashboard');
+        $this->load->view('Staff/dashboard');
     }
     public function dashboardedit(){
         $data['sparepart'] = $this->SparepartModel->getAlldata();

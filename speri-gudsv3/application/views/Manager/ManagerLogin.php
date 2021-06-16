@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/styleKindi.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
 
   </head>
   <body>
@@ -83,7 +83,7 @@
                 <section class="col-12 col-sm-6 col-md-3">
                     <form class="form-container" method="post">
                         <div class="text-center">
-                            <h3 class="pos">Welcome Admin!</h3>    
+                            <h3 class="pos">Welcome Manager!</h3>    
                         </div>
                         <div class="form-group">
                         <!-- Form username -->
@@ -103,7 +103,6 @@
                         <!-- Button login -->
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         <!-- <small class="form-text text-muted text-center">Create your account <a class="btn btn-sm btn-success"data-toggle="modal" data-target="#modal_add_new">here</a></ -->
-                        <a class="nav-link active" href="<?=site_url('Customer/register')?>">Register</a>
                     </form>
                 </section>
             </section>

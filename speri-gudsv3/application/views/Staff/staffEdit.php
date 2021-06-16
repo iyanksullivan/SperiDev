@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/admin.css">
 
-    <title>Edit Profil Pengguna</title>
+    <title>Edit Profil Staff</title>
   </head>
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-      <a class="navbar-brand text-white" href="#">Welcome User! | <b>SehatSlurr</b></a>
+      <a class="navbar-brand text-white" href="#">Welcome Staff! | <b>Speri-guds</b></a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Temukan..." aria-label="Search" aria-describedby="basic-addon2">
@@ -65,7 +65,7 @@
                   <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control form-control-plaintext" id="nama" name="nama" value="<?= $data['nama']; ?>">
+                      <input type="text" class="form-control" id="nama" name="nama" value="<?= $data['nama']; ?>">
                     </div>
                   </div>                  
                   <div class="form-group row">
@@ -112,9 +112,6 @@
             </div>
           <footer class="sticky-footer bg-white mt-5">
           <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Speri-guds 2021</span>
-            </div>
           </div>
         </footer>
         </div>

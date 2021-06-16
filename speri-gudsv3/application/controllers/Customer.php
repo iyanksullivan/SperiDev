@@ -45,7 +45,7 @@ class Customer extends CI_Controller {
 			$data['username'] = $this->input->post('username');
 			$data['password'] = $this->input->post('password');
 			if(!$this->CustomerModel->checkAuth($data)){						
-				redirect('Customer/userLogin');
+				$this->load->view('Customer/userLogin');
 			}
 			else{
 				$this->session->set_userdata('username',$data['username']);
