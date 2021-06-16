@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2021 at 10:57 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jun 15, 2021 at 02:37 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -147,11 +147,12 @@ CREATE TABLE `sparepart` (
 --
 
 INSERT INTO `sparepart` (`kode`, `nama`, `jenis`, `manufaktur`, `jumlah`, `harga`, `foto`) VALUES
-('1000', 'Ayaka Spion', 'Spion', 'Inazuma (Persero)', 2, 80500, 'test.jpg'),
-('121', 'VELG WGS', 'VELG', 'BRIDGESTONE', 60, 10000, 'test.jpg'),
-('122', 'RANCOUR VELG', 'VELG', 'MONDSTAD TBK', 39, 438000, 'test.jpg'),
-('131', 'YAMALUBE', 'OLI MESIN', 'HONDA', 11, 900000, 'test.jpg'),
-('141', 'YANFEI SHOCKBREAKER', 'SHOCKBREAKER', 'YANFEI', 67, 578000, 'test.jpg');
+('1000', 'Ayaka Spion', 'Spion', 'Inazuma (Persero)', 2, 80500, 'spion.jpg'),
+('121', 'VELG WGS', 'VELG', 'BRIDGESTONE', 60, 1500000, 'velg.jpg'),
+('122', 'RANCOUR VELG', 'VELG', 'MONDSTAD TBK', 39, 4380000, 'velg2.jpg'),
+('131', 'YAMALUBE', 'OLI MESIN', 'HONDA', 11, 900000, 'yamalube.jpg'),
+('141', 'YANFEI SHOCKBREAKER', 'SHOCKBREAKER', 'YANFEI', 67, 578000, 'shockbreaker.jpg'),
+('2408', 'JEAN BUSI', 'BUSI', 'GUNNHILDR TBK', 50, 7000, 'busi.jpg');
 
 -- --------------------------------------------------------
 
@@ -231,26 +232,22 @@ ALTER TABLE `staff_gudang`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
