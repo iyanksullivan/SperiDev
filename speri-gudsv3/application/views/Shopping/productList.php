@@ -10,6 +10,7 @@
                   <h4 class="card-title">
                     <a href="#"><?php echo $row['nama'];?></a>
                   </h4>
+                  <h5>Qty: <?php echo $row['jumlah'] ?></h5>
                   <h5>Rp. <?php echo number_format($row['harga'],0,",",".");?></h5>
                   <p class="card-text"><?php echo $row['manufaktur'];?></p>
                 </div>

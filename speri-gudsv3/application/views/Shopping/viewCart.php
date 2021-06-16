@@ -1,4 +1,14 @@
 <div class="container">
+  <?php 
+          if(empty($error)){}
+          else if($error){
+            echo "<div class='alert alert-danger' role='alert'><center>".$error."</center></div>";
+          }
+          if(empty($alert)){}
+          else if($alert){
+            echo "<div class='alert alert-success' role='alert'><center>".$alert."</center></div>";
+          }         
+  ?>  
   <div>
     <h2>Daftar Belanja</h2>
     <form action="<?php echo site_url()?>/Shopping/edit" method="post" name="frmShopping" id="frmShopping" class="form-horizontal" enctype="multipart/form-data">

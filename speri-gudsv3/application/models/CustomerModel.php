@@ -17,7 +17,7 @@ class CustomerModel extends CI_Model{
     public function getAllData(){
         $query = $this->db->get('customer');
         return $query->result_array();
-    }
+    }  
 
     //fungsi untuk melakukan pengecekan credential untuk login admin
     public function checkAuth($data){

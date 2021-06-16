@@ -14,6 +14,7 @@
                     <label for="qty" class="col-sm-2 col-form-label">Qty</label>
                     <div class="col-sm-10">                      
                       <input type="number" class="form-control form-control-plaintext" id="qty" name="qty" value="<?= $detail['qty']; ?>">
+                      <input type="hidden" class="form-control form-control-plaintext" id="kodeSparepart" name="kodeSparepart" value="<?= $detail['kodeSparepart']; ?>" required>
                     </div>
                   </div>                                      
                   <div class="form-group row justify-content-end">

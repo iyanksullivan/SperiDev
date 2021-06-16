@@ -44,8 +44,9 @@ class Customer extends CI_Controller {
 			
 			$data['username'] = $this->input->post('username');
 			$data['password'] = $this->input->post('password');
-			if(!$this->CustomerModel->checkAuth($data)){						
-				$this->load->view('Customer/userLogin');
+			if(!$this->CustomerModel->checkAuth($data)){	
+				$data['error'] = "<center><p style='color:red'>Username atau password salah!</p></center>";
+				$this->load->view('Customer/userLogin',$data);
 			}
 			else{
 				$this->session->set_userdata('username',$data['username']);
@@ -74,15 +75,15 @@ class Customer extends CI_Controller {
 			$data['nama'] = $this->input->post('nama');
 			$data['password'] = $this->input->post('password');
 			$data['alamat'] = $this->input->post('alamat');
-			if(!$this->CustomerModel->checkAuth($data)){
+			if(!$this->CustomerModel->getDataCust('username',$data['username'])){
 				//jika pengecekan username tidak ada di dalam database maka dia akan di save ke database.
-					$this->CustomerModel->create($data);
-					$this->session->set_userdata('username',$data['username']);
-					redirect('Customer/index');
+					$this->CustomerModel->create($data);					
+					redirect('Customer/login');
 			}
 			else{
 				//jika pengecekan username  ada di dalam database maka dia akan di redirect ke page login dan data tidak di save ke database
-				site_url('Customer/login');
+				$data['error'] = "<center><p style='color:red'>Akun sudah terdaftar sebelumnya!</p></center>";
+				$this->load->view('Customer/userRegister',$data);	
 			}			
 		}
     }
@@ -95,10 +96,11 @@ class Customer extends CI_Controller {
 		$this->form_validation->set_rules('re-password','Re-password','required');
 		$this->form_validation->set_rules('alamat','alamat','required');
 
-		//untuk mengambil data yang sudah ada di dalam database
-		$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
+		
 		
 		if($this->form_validation->run() == false){	
+			//untuk mengambil data yang sudah ada di dalam database
+			$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
 			$data['username'] = $this->session->username;
         	$this->load->view('Themes/header2',$data);		
 			$this->load->view('Customer/userEdit2',$data);
@@ -114,10 +116,24 @@ class Customer extends CI_Controller {
 					'alamat' => $this->input->post('alamat',true),
 				];			
 				$this->CustomerModel->update($data);
-				//jika sudah success maka akan di redirect ke page index.
-				redirect('Customer/index');
+				//jika sudah success maka akan di redirect ke halaman edit profile.
+				// redirect('Customer/index');	
+				$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
+				$data['username'] = $this->session->username;
+				$data['alert'] = "Data berhasil diubah!";
+				$this->load->view('Themes/header2',$data);		
+				$this->load->view('Customer/userEdit2',$data);
+				$this->load->view('Themes/footer');		
 			}
-			$this->load->view('Customer/userEdit',$data);
+			else{
+				$data['data'] = $this->CustomerModel->getDataCust('username',$this->session->username);
+				$data['username'] = $this->session->username;
+				$data['error'] = "Konfirmasi password salah!";
+				$this->load->view('Themes/header2',$data);		
+				$this->load->view('Customer/userEdit2',$data);
+				$this->load->view('Themes/footer');		
+			}
+			
 		}
 		
 	}

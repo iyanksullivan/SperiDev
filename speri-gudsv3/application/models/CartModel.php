@@ -29,21 +29,29 @@ class CartModel extends CI_Model {
         $this->db->from('cart');        
         $this->db->where('kodeSparepart',$id);
         return $this->db->get();
-    }   
-    // public  function getOrderByName($name)
-    // {
-    //     $this->db->select('cart.*');
-    //     $this->db->from('sparepart');        
-    //     $this->db->where('kode',$name);
-    //     return $this->db->get();
-    // }   
- 
-    // public function addCustomer($data)
-    // {
-    //     $this->db->insert('customer', $data);
-    //     $id = $this->db->insert_id();
-    //     return (isset($id)) ? $id : FALSE;
-    // }
+    }      
+    
+    
+    public function checkQty($kode, $qty){    
+        $this->db->where('kode', $kode);
+        $check =  $this->db->count_all_results('sparepart');
+        if($check > 0){            
+            $this->db->where('kode',$kode);
+            $data = $this->db->get('sparepart')->row_array();
+            if($data['jumlah'] >= $qty){
+                $stat =  true;
+            }
+            else{
+                $stat =  false;
+            }            
+        }
+        else{ 
+          
+            $stat = false;
+        }
+
+        return $stat; 
+    }
  
     public function addOrder($data)
     {
